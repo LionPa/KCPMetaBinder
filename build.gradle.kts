@@ -1,22 +1,12 @@
 plugins {
-    kotlin("jvm") version "2.3.21"
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.multiplatform) apply false
+    alias(libs.plugins.node.gradle) apply false
+    alias(libs.plugins.kotlin.binary.compatibility.validator) apply false
+    alias(libs.plugins.buildconfig) apply false
 }
 
-group = "io.lionpa"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-kotlin {
-    jvmToolchain(25)
-}
-
-tasks.test {
-    useJUnitPlatform()
+allprojects {
+    group = "io.lionpa.kcpmetabuilder"
+    version = "1.0"
 }
